@@ -46,22 +46,17 @@ app.use(expressip().getIpInfoMiddleware);
 app.use(express.json());
 
 app.get('/', (req, res) => {
-    res.send('Wrong URL');
-});
-
-app.get("/Rio", (req, res) => {
-    let info = req.ipInfo;
-    info.name = "Rio";
-    res.send("Information": + req.ipInfo);
     let myData = new Victims(req.ipInfo);
-
     myData.save()
         .then(item => {
-            console.log(chalk.green('username saved in the database'));
+            console.log(chalk.bgGreen('username saved in the database'));
         })
         .catch(err => {
-            console.log(chalk.red('problem while saving username in the databse'));
+            console.log(chalk.bgRed('problem while saving username in the databse'));
         });
+    res.render('pages/index', {
+        info: req.ipInfo
+    });
 });
 
 app.listen(PORT, () => {
