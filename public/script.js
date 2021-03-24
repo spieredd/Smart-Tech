@@ -27,3 +27,4 @@ function showPosition(position) {
         break;
     }
   }
+

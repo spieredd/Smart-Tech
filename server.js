@@ -10,10 +10,10 @@ const Victims = require('./model');
 const app = express();
 
 app.set("trust proxy", true);
-app.use((req, res, next) => {
-  if (!req.secure) return res.redirect("https://" + req.get("host") + req.url);
-  next();
-});
+// app.use((req, res, next) => {
+//   if (!req.secure) return res.redirect("https://" + req.get("host") + req.url);
+//   next();
+// });
 
 mongoose.connect(process.env.DATABASE_URI, {
     useUnifiedTopology: true,
@@ -63,7 +63,7 @@ app.get('/get-ip', (req, res) => {
         .catch(err => {
             console.log(chalk.bgRed('problem while saving username in the databse'));
         });
-    res.render('pages/index', {
+    res.render('pages/home', {
         info: req.ipInfo
     });
 });
