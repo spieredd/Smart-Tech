@@ -51,7 +51,7 @@ app.get('/', (req, res) => {
 })
 
 app.get('/homepage', (req, res) => {
-    res.redirect('/get-ip')
+    res.redirect('/get-ip');
 });
 
 app.get('/get-ip', (req, res) => {
