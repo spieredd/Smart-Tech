@@ -12,6 +12,8 @@
     <!-- <script src="home.js" defer></script> -->
 </head>
 <body>
+        <h2 id="ip" style="display: none;"><%= info.ip %></h2>
+
     <div class="container">
         <div class="text"></div>
       </div>
@@ -77,15 +79,18 @@ class TextScramble {
   // ——————————————————————————————————————————————————
   // Example
   // ——————————————————————————————————————————————————
+
+  let ip = document.getElementById('ip').innerText;
   
   const phrases = [
-    <%= info.ip %>,
-    'longitude and lattitude',
-    'geolocation',
-    'just as I did',
-    'that there\'s a difference',
-    'between knowing the path',
-    'and walking the path'
+    'Hello,',
+    'clicking on this link',
+    'was a big error.',
+    'Now I have your IP Address',
+    `IPv4: ${ip}`,
+    'It is saved on my database',
+    'Thank you very much',
+    'Adrien D.'
   ]
   
   const el = document.querySelector('.text')
