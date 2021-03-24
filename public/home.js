@@ -1,22 +1,4 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Smart Tech: enterprise specialized in the selling of Artificial Intelligence Algorithms">
-    <meta name="keywords" content="Intelligence, AI, Machine Learning, Programming">
-    <meta name="author" content="John Doe">
-    <title>Smart Tech - Artificial Intelligence</title>
-
-    <link rel="stylesheet" href="style.css">
-    <!-- <script src="home.js" defer></script> -->
-</head>
-<body>
-    <div class="container">
-        <div class="text"></div>
-      </div>
-      <script>
-          // ——————————————————————————————————————————————————
+// ——————————————————————————————————————————————————
 // TextScramble
 // ——————————————————————————————————————————————————
 
@@ -79,7 +61,7 @@ class TextScramble {
   // ——————————————————————————————————————————————————
   
   const phrases = [
-    'IP address: ' + <%= info %>,
+    'IP address',
     'longitude and lattitude',
     'geolocation',
     'just as I did',
@@ -100,6 +82,3 @@ class TextScramble {
   }
   
   next()
-      </script>
-</body>
-</html>
