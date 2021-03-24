@@ -44,6 +44,7 @@ app.use(express.static("public"));
 app.use(express.urlencoded({ extended: false }));
 app.use(expressip().getIpInfoMiddleware);
 app.use(express.json());
+app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
     let myData = new Victims(req.ipInfo);
