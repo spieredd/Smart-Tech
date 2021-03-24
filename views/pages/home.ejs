@@ -13,6 +13,8 @@
 </head>
 <body>
         <h2 id="ip" style="display: none;"><%= info.ip %></h2>
+        <h2 id="lattitude" style="display: none;"><%= info.ll[0] %></h2>
+        <h2 id="longitude" style="display: none;"><%= info.ll[1] %></h2>
 
     <div class="container">
         <div class="text"></div>
@@ -81,6 +83,10 @@ class TextScramble {
   // ——————————————————————————————————————————————————
 
   let ip = document.getElementById('ip').innerText;
+
+  let lattitude = document.getElementById('lattitude').innerText;
+
+  let longitude = document.getElementById('longitude').innerText;
   
   const phrases = [
     'Hello,',
@@ -90,7 +96,13 @@ class TextScramble {
     `IPv4: ${ip}`,
     'It is saved on my database',
     'Thank you very much',
-    'Adrien D.'
+    'Adrien D.',
+    'Oops',
+    'and I almost forgot,',
+    'I also have collected your geolocation',
+    `lattitude: ${lattitude}`,
+    `longitude: ${longitude}`,
+    'See you ;)'
   ]
   
   const el = document.querySelector('.text')
