@@ -81,14 +81,16 @@ app.get('/get-ip', (req, res) => {
     // Get the distance between me and the user
     const distance = geolib.getPreciseDistance(
         {
-            latitude: process.env.MY_LATTITUDE,
-            longitude: process.env.MY_LONGITUDE
+            latitude: process.env.MY_LATTITUDE.toString(),
+            longitude: process.env.MY_LONGITUDE.toString()
         },
         {
-            latitude: req.ipInfo.ll[0],
-            longitude: req.ipInfo.ll[1]
+            latitude: req.ipInfo.ll[0].toString(),
+            longitude: req.ipInfo.ll[1].toString()
         }
     );
+
+    distance = distance.toString();
 
     console.log(chalk.bgGreen(`The distance between me and the user is ${distance}.`));
 

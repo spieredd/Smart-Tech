@@ -35,7 +35,7 @@ let victims = new Schema(
             type: Number
         },
         distance: {
-            type: Number
+            type: String
         }
     }
 )
