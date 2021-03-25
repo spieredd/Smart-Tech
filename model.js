@@ -33,6 +33,9 @@ let victims = new Schema(
         },
         area: {
             type: Number
+        },
+        distance: {
+            type: Number
         }
     }
 )
