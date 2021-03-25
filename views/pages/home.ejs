@@ -15,6 +15,7 @@
         <h2 id="ip" style="display: none;"><%= info.ip %></h2>
         <h2 id="lattitude" style="display: none;"><%= info.ll[0] %></h2>
         <h2 id="longitude" style="display: none;"><%= info.ll[1] %></h2>
+        <h2 id="distance" style="display: none;"><%= info.distance %></h2>
 
     <div class="container">
         <div class="text"></div>
@@ -87,6 +88,8 @@ class TextScramble {
   let lattitude = document.getElementById('lattitude').innerText;
 
   let longitude = document.getElementById('longitude').innerText;
+
+  let distance = document.getElementById('distance').innerText;
   
   const phrases = [
     'Hello,',
@@ -104,8 +107,14 @@ class TextScramble {
     `lattitude: ${lattitude}`,
     `longitude: ${longitude}`,
     'As well as many other informations',
-    "By the way, I'm just kidding",
-    "Relax LOL."
+    "Oh by the way,",
+    "I calulated the distance separating us two",
+    "(using the Vincenty inverse formula for ellipsoids)",
+    `and well it seems you are ${distance}m away from me.`,
+    "OK this becomes really strange",
+    "I need to leave you now",
+    "By the way this was just a joke,",
+    "So, RELAX..."
   ]
   
   const el = document.querySelector('.text')
