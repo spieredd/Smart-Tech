@@ -100,48 +100,48 @@ app.set('view engine', 'ejs');
 app.use(passport.initialize());
 app.use(passport.session());
 app.use(cookieParser())
-// app.use(
-//     expressSession({
-//         secret: crypto.randomBytes(64).toString('hex'),
-//         resave: true,
-//         saveUninitialized: true
-//     })
-// );
+app.use(
+    expressSession({
+        secret: crypto.randomBytes(64).toString('hex'),
+        resave: true,
+        saveUninitialized: true
+    })
+);
 
-// app.get('/logoff', function (req, res) {
-//     res.clearCookie(COOKIE)
-//     res.redirect('/')
-// });
+app.get('/logoff', function (req, res) {
+    res.clearCookie(COOKIE)
+    res.redirect('/')
+});
 
-// app.get('/auth/github', passport.authenticate('github'))
+app.get('/auth/github', passport.authenticate('github'))
 
-// app.get(
-//     '/login/github/return',
-//     passport.authenticate('github', { successRedirect: '/setcookie', failureRedirect: '/' })
-// );
+app.get(
+    '/login/github/return',
+    passport.authenticate('github', { successRedirect: '/setcookie', failureRedirect: '/' })
+);
 
-// app.get('/setcookie', function (req, res) {
-//     let data = {
-//         user: req.session.passport.user.profile._json,
-//         token: req.session.passport.user.token
-//     };
-//     res.cookie(COOKIE, JSON.stringify(data));
-//     res.redirect('/');
-// });
+app.get('/setcookie', function (req, res) {
+    let data = {
+        user: req.session.passport.user.profile._json,
+        token: req.session.passport.user.token
+    };
+    res.cookie(COOKIE, JSON.stringify(data));
+    res.redirect('/');
+});
 
-// async function getGitHubData(token) {
-//     let gh = new GitHub({
-//         token: token
-//     });
+async function getGitHubData(token) {
+    let gh = new GitHub({
+        token: token
+    });
 
-//     let data = {};
-//     let me = gh.getUser();
-//     let repos = await me.listRepos();
-//     data.repos = repos.data;
-//     return data;
-// };
+    let data = {};
+    let me = gh.getUser();
+    let repos = await me.listRepos();
+    data.repos = repos.data;
+    return data;
+};
 
-// module.exports = getGitHubData;
+module.exports = getGitHubData;
 
 app.use(cors());
 
@@ -171,24 +171,24 @@ app.get("/api/repos", (req, res) => {
 
 // GET Request
 app.get('/', (req, res) => {
-    // let data = {
-    //     session: req.cookies[COOKIE] && JSON.parse(req.cookies[COOKIE])
-    // };
+    let data = {
+        session: req.cookies[COOKIE] && JSON.parse(req.cookies[COOKIE])
+    };
 
-	// if (data.session && data.session.token) {
-	// 	let githubData
-	// 	try {
-	// 		githubData = await getGitHubData(data.session.token)
-	// 	} catch (error) {
-	// 		githubData = { error: error }
-	// 	}
-	// 	_.extend(data, githubData)
-    // };
+	if (data.session && data.session.token) {
+		let githubData
+		try {
+			githubData = await getGitHubData(data.session.token)
+		} catch (error) {
+			githubData = { error: error }
+		}
+		_.extend(data, githubData)
+    };
 
-	// if (data.session) {
-	// 	data.session.token = 'mildly obfuscated.'
-    // };
-    // data.json = stringify(data, null, 2);
+	if (data.session) {
+		data.session.token = 'mildly obfuscated.'
+    };
+    data.json = stringify(data, null, 2);
 
     let data;
 
