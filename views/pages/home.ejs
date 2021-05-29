@@ -1,140 +1,23 @@
-<html lang="en">
-<head>
-    <meta charset="UTF-8">
-    <meta http-equiv="X-UA-Compatible" content="IE=edge">
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <meta name="description" content="Smart Tech: enterprise specialized in the selling of Artificial Intelligence Algorithms">
-    <meta name="keywords" content="Intelligence, AI, Machine Learning, Programming">
-    <meta name="author" content="Adrien D">
-
-    <title>Smart Tech - Artificial Intelligence</title>
-
-    <link rel="stylesheet" href="style.css">
-    <!-- <script src="home.js" defer></script> -->
+<%- include('../partials/header.ejs') %>
+<link rel="stylesheet" href="/css/home.css">
 </head>
 <body>
-        <h2 id="ip" style="display: none;"><%= info.ip %></h2>
-        <h2 id="lattitude" style="display: none;"><%= info.ll[0] %></h2>
-        <h2 id="longitude" style="display: none;"><%= info.ll[1] %></h2>
-        <h2 id="distance" style="display: none;"><%= info.distance %></h2>
-
-    <div class="container">
-        <div class="text"></div>
+  <%- include('../partials/navbar.ejs') %>
+  <main class="main">
+    <div class="card text-center bg-dark text-light">
+      <div class="card-header">
+        Smart-Tech
       </div>
-      <script>
-          // ——————————————————————————————————————————————————
-// TextScramble
-// ——————————————————————————————————————————————————
-
-class TextScramble {
-    constructor(el) {
-      this.el = el
-      this.chars = '!<>-_\\/[]{}—=+*^?#________'
-      this.update = this.update.bind(this)
-    }
-    setText(newText) {
-      const oldText = this.el.innerText
-      const length = Math.max(oldText.length, newText.length)
-      const promise = new Promise((resolve) => this.resolve = resolve)
-      this.queue = []
-      for (let i = 0; i < length; i++) {
-        const from = oldText[i] || ''
-        const to = newText[i] || ''
-        const start = Math.floor(Math.random() * 40)
-        const end = start + Math.floor(Math.random() * 40)
-        this.queue.push({ from, to, start, end })
-      }
-      cancelAnimationFrame(this.frameRequest)
-      this.frame = 0
-      this.update()
-      return promise
-    }
-    update() {
-      let output = ''
-      let complete = 0
-      for (let i = 0, n = this.queue.length; i < n; i++) {
-        let { from, to, start, end, char } = this.queue[i]
-        if (this.frame >= end) {
-          complete++
-          output += to
-        } else if (this.frame >= start) {
-          if (!char || Math.random() < 0.28) {
-            char = this.randomChar()
-            this.queue[i].char = char
-          }
-          output += `<span class="dud">${char}</span>`
-        } else {
-          output += from
-        }
-      }
-      this.el.innerHTML = output
-      if (complete === this.queue.length) {
-        this.resolve()
-      } else {
-        this.frameRequest = requestAnimationFrame(this.update)
-        this.frame++
-      }
-    }
-    randomChar() {
-      return this.chars[Math.floor(Math.random() * this.chars.length)]
-    }
-  }
-  
-  // ——————————————————————————————————————————————————
-  // Example
-  // ——————————————————————————————————————————————————
-
-  let ip = document.getElementById('ip').innerText;
-
-  let lattitude = document.getElementById('lattitude').innerText;
-
-  let longitude = document.getElementById('longitude').innerText;
-
-  let distance = document.getElementById('distance').innerText;
-  
-  const phrases = [
-    'Hello,',
-    'clicking on this link',
-    'and trying to stalk me',
-    'was a big error.',
-    'Now I have your IP Address',
-    `IPv4: ${ip}`,
-    'It is saved on my database',
-    'Thank you very much',
-    '@adrydmt',
-    'Oops',
-    'and I almost forgot,',
-    'I also got your geolocation',
-    `lattitude: ${lattitude}`,
-    `longitude: ${longitude}`,
-    'As well as many other informations',
-    "Oh by the way,",
-    "I calulated the distance",
-    "which is separating us two",
-    "(using the Vincenty inverse formula",
-    "for ellipsoids)",
-    "and well it seems you are",
-    `${distance}m away from me.`,
-    "OK this becomes",
-    "really strange...",
-    "I am going",
-    "to leave you now",
-    "By the way this was just a joke,",
-    "So, RELAX..."
-  ]
-  
-  const el = document.querySelector('.text')
-  const fx = new TextScramble(el)
-  
-  let counter = 0
-  const next = () => {
-    fx.setText(phrases[counter]).then(() => {
-      setTimeout(next, 800)
-    })
-    counter = (counter + 1) % phrases.length
-  }
-  
-  next()
-      </script>
+      <div class="card-body">
+        <h5 class="card-title">Special title treatment</h5>
+        <p class="card-text">With supporting text below as a natural lead-in to additional content.</p>
+        <a href="#" class="btn btn-primary">Go somewhere</a>
+      </div>
+      <div class="card-footer text-muted">
+        2 days ago
+      </div>
+    </div>
+  </main>
+  <%- include('../partials/footer.ejs') %>
 </body>
 </html>
