@@ -41,12 +41,36 @@ img.card-img-top {
 
 h5.card-title {
     font-weight: 600;
-    color:rgb(255, 126, 126);
+    color: rgb(255, 126, 126);
     font-size: 1.2rem;
 }
 
-.card-footer{
+.card-footer {
     border-color: rgba(255, 255, 255, 0.2);
+}
+
+h3 {
+    margin-top: 2rem;
+    color:#fff;
+    font-weight:500;
+    font-size:1.5rem
+}
+
+::-webkit-scrollbar {
+    width: 8px;
+}
+
+::-webkit-scrollbar-track {
+    background: none;
+}
+
+::-webkit-scrollbar-thumb {
+    background: rgb(193, 111, 111);
+    border-radius: 10px;
+}
+
+::-webkit-scrollbar-thumb:hover {
+    background: rgb(159, 91, 91);
 }
 
 @media screen and (max-width: 1000px) {
