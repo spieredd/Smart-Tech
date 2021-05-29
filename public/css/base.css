@@ -1,0 +1,17 @@
+:root{
+    --pink:#ff96ad;
+    --green:#1eae98;
+    --purple:#542e71;
+    --red:#f05454;
+    --blue:#111d5e;
+}
+
+body{
+    font-family: 'Poppins', sans-serif;
+    background-color:rgb(52, 52, 52);
+    width:100%;
+}
+
+nav{
+    width:100%;
+}
