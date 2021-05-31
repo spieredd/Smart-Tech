@@ -9,4 +9,8 @@ router.get('/home', (req, res) => {
     res.render('pages/home');
 });
 
+router.get('/articles/the-future-of-space-exploration', (req, res) => {
+    res.render('pages/space');
+});
+
 module.exports = router;
