@@ -56,8 +56,16 @@ h3 {
     font-size:1.5rem
 }
 
+p{
+    color:rgba(255, 255, 255, 0.9);
+}
+
 li a.dropdown-item{
-    color:rgba(255, 255, 255, 0.8);
+    color:rgba(255, 255, 255, 0.7);
+}
+
+.image-ai{
+    border-radius:4px;
 }
 
 ::-webkit-scrollbar {

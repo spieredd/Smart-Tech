@@ -17,6 +17,10 @@ app.get('/', (req, res) => {
     res.redirect('/app');
 });
 
+app.get('/app/about', (req, res) => {
+    res.render('pages/about')
+})
+
 const PORT = process.env.PORT;
 
 app.listen(PORT, (err) => {
